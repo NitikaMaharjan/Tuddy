@@ -1,30 +1,33 @@
-//How to handle event
-//How to set state
-import React, {useState} from 'react'; // useState is a hook
+import React, {useState} from 'react';
 
 export default function TextForm(props) {
 
-  const handleOnClick = () => {
-    // console.log("Change to Uppercase"+text);
+  const handleUpClick = () => {
     let new_text = text.toUpperCase();
     setText(new_text);
   }
+  const handleLoClick = () => {
+    let new_text = text.toLowerCase();
+    setText(new_text);
+  }
   const handleOnChange = (event) => {
-    // console.log("On Change")
     setText(event.target.value);
   }
-  const [text, setText] = useState("this is me testing"); // text is a variable while setText is a method
-  // text = "Not Nitika";  -> Wrong way of changing the state using variable
-  // setText("Niti");      -> Right way of changing the state using the function
+  const [text, setText] = useState("");
   return (
     <div>
         <fieldset>
             <legend>{props.header}</legend>
             <form>
                 <label>Enter text here:</label><br/>
-                <textarea rows="8" value={text} onChange={handleOnChange}></textarea><br/>
+                <textarea className='my-text' value={text} onChange={handleOnChange}></textarea><br/>
             </form>
-            <button onClick={handleOnClick}>Change to Uppercase</button>
+            <button onClick={handleUpClick}>Change to Uppercase</button>&nbsp;&nbsp;&nbsp;
+            <button onClick={handleLoClick}>Change to Lowercase</button><br/>
+            <p>{text.split(' ').length} words and {text.length} characters</p>
+            <p>{text.split(' ').length * 0.008} minutes to read</p>
+            <p>Preview</p>
+            <p>{text}</p>
         </fieldset>
     </div>
   );

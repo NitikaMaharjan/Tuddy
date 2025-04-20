@@ -1,5 +1,4 @@
-fieldset{
-    background-color: rgba(236,242,255,255);
-    display: inline-block;
-    margin-left: 100px;
+.my-text{
+    width: 1320px;
+    height: 209px;
 }

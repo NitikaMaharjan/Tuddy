@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Navbar title1="Home" title2="Products" title3="Gallery"/>
-      <TextForm header="Your Uppercase Buddy"/>
+      <TextForm header="Tuddy: Text Buddy"/>
     </>
   );
 }
