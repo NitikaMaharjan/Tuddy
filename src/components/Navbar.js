@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default function Navbar(props) {
   return (
     <div>
-      <p>{props.title1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.title2}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.title3}</p>
+      <h2>{props.title1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.title2}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.title3}</h2>
     </div>
   );
 }
@@ -16,7 +16,7 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  title1: 'ghar',
-  title2: 'saman',
-  title3: 'photo'
+  title1: 'on progress',
+  title2: 'on progress',
+  title3: 'on progress'
 };
