@@ -55,7 +55,7 @@ export default function About() {
                     border:'1px solid black'
                 }
             );
-            setButtonName('Enable Drak Mode');
+            setButtonName('Enable Dark Mode');
         }
     }
     

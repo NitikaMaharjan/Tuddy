@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 
 export default function TextForm(props) {
+  const[divStyle, setDivStyle] = useState({
+    'display': 'block',
+    'margin' : '24px',
+    'padding' : '24px'
+  })
 
   const [text, setText] = useState('');
 
@@ -59,26 +64,28 @@ export default function TextForm(props) {
   }
   
   return (
-    <div>
+    <div style={{...divStyle, border:props.mode==='white'?'1px solid black':'1px solid white'}}>
+      <div>
         <fieldset>
-            <legend>{props.header}</legend>
-            <form>
-                <label>Enter text here:</label><br/>
-                <textarea className='my-text' value={text} onChange={handleOnChange}></textarea><br/>
-            </form>
-            <button onClick={handleUpClick}>Change to Uppercase</button>&nbsp;&nbsp;&nbsp;
-            <button onClick={handleLoClick}>Change to Lowercase</button>&nbsp;&nbsp;&nbsp;
-            <button onClick={handleReplaceYellow}>Replace yellow to banana</button>&nbsp;&nbsp;&nbsp;
-            <button onClick={handleReplaceBanana}>Replace banana to yellow</button>&nbsp;&nbsp;&nbsp;
-            <button onClick={handleClear}>Clear Text</button>&nbsp;&nbsp;&nbsp;
-            <button onClick={handleClip}>Copy to Clipboard</button>&nbsp;&nbsp;&nbsp;
-            <button onClick={handleCapitalize}>Capitalize first letter</button>&nbsp;&nbsp;&nbsp;
-            <button onClick={handleCapitalizeEach}>Capitalize each first letter</button>
-            <p>{countWords()} words and {text.length} characters</p>
-            <p>{countWords()*0.008} minutes to read</p>
-            <h4>Preview</h4>
-            <p>{text}</p>
+          <legend style={{color:props.mode==='white'?'black':'white'}}>{props.header}</legend>
+          <form>
+              <label style={{color:props.mode==='white'?'black':'white'}}>Enter text here:</label><br/>
+              <textarea className='my-text' value={text} onChange={handleOnChange}></textarea><br/>
+          </form>
+          <button onClick={handleUpClick} className="btn btn-primary my-1 mx-1">Change to Uppercase</button>
+          <button onClick={handleLoClick} className="btn btn-primary my-1 mx-1">Change to Lowercase</button>
+          <button onClick={handleReplaceYellow} className="btn btn-warning my-1 mx-1">Replace yellow to banana</button>
+          <button onClick={handleReplaceBanana} className="btn btn-warning my-1 mx-1">Replace banana to yellow</button>
+          <button onClick={handleClear} className="btn btn-danger my-1 mx-1">Clear Text</button>
+          <button onClick={handleClip} className="btn btn-success my-1 mx-1">Copy to Clipboard</button>
+          <button onClick={handleCapitalize} className="btn btn-info my-1 mx-1">Capitalize first letter</button>
+          <button onClick={handleCapitalizeEach} className="btn btn-info my-1 mx-1">Capitalize each first letter</button>
+          <p style={{color:props.mode==='white'?'black':'white'}}>{countWords()} words and {text.length} characters</p>
+          <p style={{color:props.mode==='white'?'black':'white'}}>{countWords()*0.008} minutes to read</p>
+          <h4 style={{color:props.mode==='white'?'black':'white'}}>Preview</h4>
+          <p style={{color:props.mode==='white'?'black':'white'}}>{text}</p>
         </fieldset>
+      </div>
     </div>
   );
 }
