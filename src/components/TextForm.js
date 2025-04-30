@@ -64,12 +64,12 @@ export default function TextForm(props) {
   }
   
   return (
-    <div style={{...divStyle, border:props.mode==='white'?'1px solid black':'1px solid white'}}>
+    <div style={{...divStyle, border:props.mode==='light'?'1px solid black':'1px solid white'}}>
       <div>
         <fieldset>
-          <legend style={{color:props.mode==='white'?'black':'white'}}>{props.header}</legend>
+          <legend style={{color:props.mode==='light'?'black':'white'}}>{props.header}</legend>
           <form>
-              <label style={{color:props.mode==='white'?'black':'white'}}>Enter text here:</label><br/>
+              <label style={{color:props.mode==='light'?'black':'white'}}>Enter text here:</label><br/>
               <textarea className='my-text' value={text} onChange={handleOnChange}></textarea><br/>
           </form>
           <button onClick={handleUpClick} className="btn btn-primary my-1 mx-1">Change to Uppercase</button>
@@ -80,10 +80,10 @@ export default function TextForm(props) {
           <button onClick={handleClip} className="btn btn-success my-1 mx-1">Copy to Clipboard</button>
           <button onClick={handleCapitalize} className="btn btn-info my-1 mx-1">Capitalize first letter</button>
           <button onClick={handleCapitalizeEach} className="btn btn-info my-1 mx-1">Capitalize each first letter</button>
-          <p style={{color:props.mode==='white'?'black':'white'}}>{countWords()} words and {text.length} characters</p>
-          <p style={{color:props.mode==='white'?'black':'white'}}>{countWords()*0.008} minutes to read</p>
-          <h4 style={{color:props.mode==='white'?'black':'white'}}>Preview</h4>
-          <p style={{color:props.mode==='white'?'black':'white'}}>{text}</p>
+          <p style={{color:props.mode==='light'?'black':'white'}}>{countWords()} words and {text.length} characters</p>
+          <p style={{color:props.mode==='light'?'black':'white'}}>{countWords()*0.008} minutes to read</p>
+          <h4 style={{color:props.mode==='light'?'black':'white'}}>Preview</h4>
+          <p style={{color:props.mode==='light'?'black':'white'}}>{text}</p>
         </fieldset>
       </div>
     </div>

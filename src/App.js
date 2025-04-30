@@ -5,14 +5,14 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 
 function App() {
-  const [myMode, setMode] = useState('white');
+  const [myMode, setMode] = useState('light');
 
   const toggleSwitch = () => {
-    if (myMode ==='white'){
+    if (myMode ==='light'){
       setMode('black');
       document.body.style.backgroundColor='#292929';
     }else{
-      setMode('white');
+      setMode('light');
       document.body.style.backgroundColor='white';
     }
   }
