@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 
 export default function TextForm(props) {
-  const[divStyle, setDivStyle] = useState({
+  const divStyle = {
     'display': 'block',
     'margin' : '24px',
     'padding' : '24px'
-  })
+  };
 
   const [text, setText] = useState('');
 
@@ -16,31 +16,60 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     let new_text = text.toUpperCase();
     setText(new_text);
+    if (countWords() != 0){
+      props.showAlert("success", "Your text is converted to upper case!");
+    }else{
+      props.showAlert("danger", "Enter some text below!");
+    }
   }
 
   const handleLoClick = () => {
     let new_text = text.toLowerCase();
     setText(new_text);
+    if (countWords() != 0){
+      props.showAlert("success", "Your text is converted to lower case!");
+    }else{
+      props.showAlert("danger", "Enter some text below!");
+    }
   }
 
   const handleReplaceYellow = () => {
     // setText(text.replace("yellow", "banana")); this replaces only the first instance of the yellow
-    setText(text.replace(/yellow/g, "banana"))
+    setText(text.replace(/yellow/g, "banana")); // g replaces all instances of yellow
+    if (countWords() != 0){
+      props.showAlert("success", "Yellow is replaced by banana!");
+    }else{
+      props.showAlert("danger", "Enter some text below!");
+    }
   }
 
   const handleReplaceBanana = () => {
-    setText(text.replace(/banana/g, "yellow"))
+    setText(text.replace(/banana/g, "yellow")); // g replaces all instances of banana
+    if (countWords() != 0){
+      props.showAlert("success", "Banana is replaced by yellow!");
+    }else{
+      props.showAlert("danger", "Enter some text below!");
+    }
   }
 
   const handleClear = () => {
     setText("");
+    if (countWords() != 0){
+      props.showAlert("success", "Your text has been cleared!");
+    }else{
+      props.showAlert("danger", "Enter some text below!");
+    }
   }
 
   const handleClip = async() => {
     navigator.clipboard.writeText(text); // writeText is to write onto the clipboard while readText is to read from the clipboard
     try {
       let copiedText = await navigator.clipboard.readText();
-      alert("Copied text is: "+ copiedText);
+      if (countWords() != 0){
+        props.showAlert("success", "Your copied text is \""+copiedText+"\"");
+      }else{
+        props.showAlert("danger", "No text has been copied!");
+      }
     }catch(err){
       alert("Failed to read clipboard: " + err);
     }
@@ -48,6 +77,11 @@ export default function TextForm(props) {
 
   const handleCapitalize = () => {
     setText(text.charAt(0).toUpperCase()+text.substring(1).toLowerCase());
+    if (countWords() != 0){
+      props.showAlert("success", "Your first letter is capitalized!");
+    }else{
+      props.showAlert("danger", "Enter some text below!");
+    }
   }
 
   const handleCapitalizeEach = () => {
@@ -56,6 +90,11 @@ export default function TextForm(props) {
       words[i] = words[i].charAt(0).toUpperCase()+words[i].substring(1).toLowerCase();
     }
     setText(words.join(' '));
+    if (countWords() != 0){
+      props.showAlert("success", "Your first letter of each word is capitalized!");
+    }else{
+      props.showAlert("danger", "Enter some text below!");
+    }
   }
   
   const countWords = () => {

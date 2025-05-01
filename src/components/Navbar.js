@@ -26,9 +26,9 @@ export default function Navbar(props) {
                   Dropdown link
                 </a>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="" style={{color:props.mode==='light'?'black':'white'}}>Action</a></li>
-                  <li><a className="dropdown-item" href="" style={{color:props.mode==='light'?'black':'white'}}>Another action</a></li>
-                  <li><a className="dropdown-item" href="" style={{color:props.mode==='light'?'black':'white'}}>Something else here</a></li>
+                  <li><a className="dropdown-item" href="">Action</a></li>
+                  <li><a className="dropdown-item" href="">Another action</a></li>
+                  <li><a className="dropdown-item" href="">Something else here</a></li>
                 </ul>
               </li>
             </ul>
