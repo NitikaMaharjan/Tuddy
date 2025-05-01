@@ -4,6 +4,7 @@ import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [myMode, setMode] = useState('light');
@@ -34,11 +35,15 @@ function App() {
 
   return (
     <>
-      <Navbar title1="Tuddy" title2="About" title3="Contact" mode={myMode} toggle={toggleSwitch}/>
-      <Alert alert={myAlert}/>
-      <TextForm header="Tuddy: Text Buddy" mode={myMode} showAlert={showAlert}/>
-      <About/>
-
+      <Router>
+        <Navbar title1="Tuddy" title2="About" mode={myMode} toggle={toggleSwitch}/>
+        <Alert alert={myAlert}/>
+        <Routes>
+          <Route exact path="/" element={<TextForm header="Tuddy: Text Buddy" mode={myMode} showAlert={showAlert}/>} />
+          <Route exact path="/about" element={<About/>} />
+        </Routes>
+      </Router>
+      
       {/* {<h1>Hello {name}</h1>
       <h1>{"Hello " + name}</h1>
       <h1>{`Hello ${name}`}</h1>using template literal */}
