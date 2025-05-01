@@ -36,11 +36,11 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar title1="Tuddy" title2="About" mode={myMode} toggle={toggleSwitch}/>
+        <Navbar title1="Tuddy" title2="About us" mode={myMode} toggle={toggleSwitch}/>
         <Alert alert={myAlert}/>
         <Routes>
           <Route exact path="/" element={<TextForm header="Tuddy: Text Buddy" mode={myMode} showAlert={showAlert}/>} />
-          <Route exact path="/about" element={<About/>} />
+          <Route exact path="/about" element={<About mode={myMode}/>} />
         </Routes>
       </Router>
       

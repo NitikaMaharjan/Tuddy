@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 export default function TextForm(props) {
   const divStyle = {
     'display': 'block',
-    'margin' : '24px',
-    'padding' : '24px'
+    'margin' : '32px 24px 0px 24px', // top right bottom left
+    'padding' : '0px 24px 24px 24px'
   };
 
   const [text, setText] = useState('');
@@ -19,7 +19,7 @@ export default function TextForm(props) {
     if (countWords() !== 0){
       props.showAlert("success", "Your text is converted to upper case!");
     }else{
-      props.showAlert("danger", "Enter some text below!");
+      props.showAlert("danger", "Enter some text below:");
     }
   }
 
@@ -29,7 +29,7 @@ export default function TextForm(props) {
     if (countWords() !== 0){
       props.showAlert("success", "Your text is converted to lower case!");
     }else{
-      props.showAlert("danger", "Enter some text below!");
+      props.showAlert("danger", "Enter some text below:");
     }
   }
 
@@ -39,7 +39,7 @@ export default function TextForm(props) {
     if (countWords() !== 0){
       props.showAlert("success", "Yellow is replaced by banana!");
     }else{
-      props.showAlert("danger", "Enter some text below!");
+      props.showAlert("danger", "Enter some text below:");
     }
   }
 
@@ -48,7 +48,7 @@ export default function TextForm(props) {
     if (countWords() !== 0){
       props.showAlert("success", "Banana is replaced by yellow!");
     }else{
-      props.showAlert("danger", "Enter some text below!");
+      props.showAlert("danger", "Enter some text below:");
     }
   }
 
@@ -57,7 +57,7 @@ export default function TextForm(props) {
     if (countWords() !== 0){
       props.showAlert("success", "Your text has been cleared!");
     }else{
-      props.showAlert("danger", "Enter some text below!");
+      props.showAlert("danger", "Enter some text below:");
     }
   }
 
@@ -80,7 +80,7 @@ export default function TextForm(props) {
     if (countWords() !== 0){
       props.showAlert("success", "Your first letter is capitalized!");
     }else{
-      props.showAlert("danger", "Enter some text below!");
+      props.showAlert("danger", "Enter some text below:");
     }
   }
 
@@ -93,7 +93,7 @@ export default function TextForm(props) {
     if (countWords() !== 0){
       props.showAlert("success", "Your first letter of each word is capitalized!");
     }else{
-      props.showAlert("danger", "Enter some text below!");
+      props.showAlert("danger", "Enter some text below:");
     }
   }
   
@@ -103,26 +103,26 @@ export default function TextForm(props) {
   }
   
   return (
-    <div style={{...divStyle, border:props.mode==='light'?'1px solid black':'1px solid white'}}>
+    <div style={divStyle}>
       <div>
         <fieldset>
-          <legend style={{color:props.mode==='light'?'black':'white'}}>{props.header}</legend>
+          <strong><legend style={{color:props.mode==='light'?'black':'white'}}>{props.header}</legend></strong>
           <form>
               <label style={{color:props.mode==='light'?'black':'white'}}>Enter text here:</label><br/>
               <textarea className='my-text' value={text} onChange={handleOnChange}></textarea><br/>
           </form>
-          <button onClick={handleUpClick} className="btn btn-primary my-1 mx-1">Change to Uppercase</button>
-          <button onClick={handleLoClick} className="btn btn-primary my-1 mx-1">Change to Lowercase</button>
-          <button onClick={handleReplaceYellow} className="btn btn-warning my-1 mx-1">Replace yellow to banana</button>
-          <button onClick={handleReplaceBanana} className="btn btn-warning my-1 mx-1">Replace banana to yellow</button>
-          <button onClick={handleClear} className="btn btn-danger my-1 mx-1">Clear Text</button>
-          <button onClick={handleClip} className="btn btn-success my-1 mx-1">Copy to Clipboard</button>
-          <button onClick={handleCapitalize} className="btn btn-info my-1 mx-1">Capitalize first letter</button>
-          <button onClick={handleCapitalizeEach} className="btn btn-info my-1 mx-1">Capitalize each first letter</button>
+          <button disabled={countWords()===0} onClick={handleUpClick} className="btn btn-primary my-1 mx-1">Change to Uppercase</button>
+          <button disabled={countWords()===0} onClick={handleLoClick} className="btn btn-primary my-1 mx-1">Change to Lowercase</button>
+          <button disabled={countWords()===0} onClick={handleReplaceYellow} className="btn btn-warning my-1 mx-1">Replace yellow to banana</button>
+          <button disabled={countWords()===0} onClick={handleReplaceBanana} className="btn btn-warning my-1 mx-1">Replace banana to yellow</button>
+          <button disabled={countWords()===0} onClick={handleClear} className="btn btn-danger my-1 mx-1">Clear Text</button>
+          <button disabled={countWords()===0} onClick={handleClip} className="btn btn-success my-1 mx-1">Copy to Clipboard</button>
+          <button disabled={countWords()===0} onClick={handleCapitalize} className="btn btn-info my-1 mx-1">Capitalize first letter</button>
+          <button disabled={countWords()===0} onClick={handleCapitalizeEach} className="btn btn-info my-1 mx-1">Capitalize each first letter</button>
           <p style={{color:props.mode==='light'?'black':'white'}}>{countWords()} words and {text.length} characters</p>
           <p style={{color:props.mode==='light'?'black':'white'}}>{countWords()*0.008} minutes to read</p>
           <h4 style={{color:props.mode==='light'?'black':'white'}}>Preview</h4>
-          <p style={{color:props.mode==='light'?'black':'white'}}>{text}</p>
+          <p style={{color:props.mode==='light'?'black':'white'}}>{text === ""?"Nothing to preview!":text}</p>
         </fieldset>
       </div>
     </div>

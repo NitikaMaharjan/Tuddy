@@ -9,8 +9,12 @@ export default function Alert(props) {
     }
 
   return (
-    props.alert && <div class={`alert alert-${props.alert.status} alert-dismissible fade show`} role="alert">
-        <strong>{handleStatus(props.alert.status)}</strong> : {props.alert.msg}
+    <div style={{height: '24px'}}>
+      {props.alert 
+      && 
+      <div class={`alert alert-${props.alert.status} alert-dismissible fade show`} role="alert">
+          <strong>{handleStatus(props.alert.status)}</strong> : {props.alert.msg}
+      </div>}
     </div>
   )
 }
