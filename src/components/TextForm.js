@@ -61,17 +61,13 @@ export default function TextForm(props) {
     }
   }
 
-  const handleClip = async() => {
+  const handleClip = () => {
     navigator.clipboard.writeText(text); // writeText is to write onto the clipboard while readText is to read from the clipboard
-    try {
-      let copiedText = await navigator.clipboard.readText();
-      if (countWords() !== 0){
-        props.showAlert("success", "Your copied text is \""+copiedText+"\"");
-      }else{
-        props.showAlert("danger", "No text has been copied!");
-      }
-    }catch(err){
-      alert("Failed to read clipboard: " + err);
+    
+    if (countWords() !== 0){
+      props.showAlert("success", "You have copied text!");
+    }else{
+      props.showAlert("danger", "No text has been copied!");
     }
   }
 
@@ -99,7 +95,7 @@ export default function TextForm(props) {
   
   const countWords = () => {
     let trimmed_text = text.trim(); // trim() removes both leading and trailing white spaces
-    return trimmed_text === '' ? 0 : trimmed_text.split(' ').length; // if trimmed is empty then return 0 else split the words where ever there is space and count the number of words
+    return trimmed_text === '' ? 0 : trimmed_text.split(/\s+/).length; // if trimmed is empty then return 0 else split the words where ever there is space, line lines, tabs and count the number of words
   }
   
   return (
