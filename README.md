@@ -42,25 +42,34 @@ Navigation between pages using `react-router-dom`.
 
 Buttons that trigger alert messages when clicked, demonstrating the use of `useState` and event handling in React.
 
-**Dark Mode Toggle**<br/>
-Button that enables **dark mode** styling for the application when clicked.
+- **Dark Mode Toggle**
+  
+  Button that enables **dark mode** styling for the application when clicked.
+  
 <img src="public/images/dark-mode-btn-click.png"><br/>
 
-**Convert to Uppercase**<br/>
-Button that **converts the input text to uppercase** using a click event and updates the state accordingly.
+- **Convert to Uppercase**
+  
+  Button that **converts the input text to uppercase** using a click event and updates the state accordingly.
+  
 <img src="public/images/uppercase-btn-click.png"><br/>
 
+- **Convert to Lowercase**
 
-**Convert to Lowercase**<br/>
-Button that **converts the input text to lowercase** using a click event and updates the state accordingly.
+  Button that **converts the input text to lowercase** using a click event and updates the state accordingly.
+  
 <img src="public/images/lowercase-btn-click.png"><br/>
 
-**Convert Yellow to Banana**<br/>
-Button that **converts yellow to banana** using a click event and updates the state accordingly.
+- **Convert Yellow to Banana**
+
+  Button that **converts yellow to banana** using a click event and updates the state accordingly.
+  
 <img src="public/images/banana-btn-click.png"><br/>
 
-**Convert Banana to Yellow**<br/>
-Button that **converts banana to yellow** using a click event and updates the state accordingly.
+- **Convert Banana to Yellow**
+
+  Button that **converts banana to yellow** using a click event and updates the state accordingly.
+  
 <img src="public/images/yellow-btn-click.png"><br/>
 
 ## Acknowledgements
