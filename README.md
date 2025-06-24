@@ -24,7 +24,7 @@ Through this project, I practiced and understood the following core React concep
 
 ## Screenshots
 
-Below are some screenshots of the project showcasing key features:
+> Below are some screenshots of the project showcasing key features:
 
 ### Home
 
